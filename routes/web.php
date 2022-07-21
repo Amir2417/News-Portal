@@ -27,9 +27,9 @@ Route::get('categories', [App\Http\Controllers\Admin\CategoryController::class, 
 Route::post('categories/store', [App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('category.store');
 Route::get('/category/edit/{id}',[App\Http\Controllers\Admin\CategoryController::class,'edit']);
 Route::post('/update/{id}',[App\Http\Controllers\Admin\CategoryController::class,'update'])->name('category.update');
-Route::get('/delete/{id}',[App\Http\Controllers\Admin\CategoryController::class,'delete'])->name('category.delete');
-Route::get('/inactive/{id}',[App\Http\Controllers\Admin\CategoryController::class,'CategoryInactive'])->name('category.inactive');
-Route::get('/active/{id}',[App\Http\Controllers\Admin\CategoryController::class,'CategoryActive'])->name('category.active');
+Route::get('/category/delete/{id}',[App\Http\Controllers\Admin\CategoryController::class,'delete']);
+Route::get('/category/inactive/{id}',[App\Http\Controllers\Admin\CategoryController::class,'CategoryInactive']);
+Route::get('/category/active/{id}',[App\Http\Controllers\Admin\CategoryController::class,'CategoryActive']);
 
 
 // All SubCategory Routes
@@ -41,6 +41,9 @@ Route::post('/update/{id}',[App\Http\Controllers\Admin\SubCategoryController::cl
 Route::get('/delete/{id}',[App\Http\Controllers\Admin\SubCategoryController::class,'delete'])->name('subcategory.delete');
 Route::get('/inactive/{id}',[App\Http\Controllers\Admin\SubCategoryController::class,'inactive'])->name('subcategory.inactive');
 Route::get('/active/{id}',[App\Http\Controllers\Admin\SubCategoryController::class,'active'])->name('subcategory.active');
+
+// All Author Routes
+Route::resource('authors', App\Http\Controllers\Admin\AuthorController::class);
 
 
 Route::namespace('Admin')->group(function () {

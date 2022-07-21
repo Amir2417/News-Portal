@@ -17,7 +17,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Category En</th>
+                                        <th>Category Name</th>
                                         <th>Category Slug</th>
                                         <th>Status</th>
 
@@ -40,14 +40,14 @@
                                         <td>
                                             {{-- Edit and Delete Option Start--}}
                                             <a class="btn btn-primary" href="{{ url('category/edit',$item->id) }}" title="Edit Data"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger" id="delete" href="{{ route('category.delete',$item->id) }}" title="Delete Data"><i class="fa fa-trash"></i></a>
+                                            <a class="btn btn-danger" id="delete" href="{{ url('category/delete',$item->id) }}" title="Delete Data"><i class="fa fa-trash"></i></a>
                                             {{-- Edit and Delete Option End--}}
 
                                             {{-- Active and inactive Option  Start--}}
                                             @if($item->status ==1)
-                                            <a class="btn btn-primary" href="{{ route('category.inactive',$item->id) }}" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
+                                            <a class="btn btn-primary" href="{{ url('category/inactive',$item->id) }}" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
                                             @else
-                                            <a class="btn btn-primary" href="{{ route('category.active',$item->id) }}" title="Active Now"><i class="fa fa-arrow-up"></i></a>
+                                            <a class="btn btn-primary" href="{{ url('category/active',$item->id) }}" title="Active Now"><i class="fa fa-arrow-up"></i></a>
                                             @endif
                                             {{-- Active and inactive Option  End--}}
                                         </td>

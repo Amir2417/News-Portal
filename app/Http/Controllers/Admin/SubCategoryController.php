@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class SubCategoryController extends Controller
 {
     public function index(){
-        $data['categories'] = Category::orderBy('name','ASC')->get();
+        $data['categories'] = Category::where('status',1)->orderBy('name','ASC')->get();
         $data['subcategory'] = SubCategory::latest()->get();
         return view('admin.subcategory.create',$data);
     }
@@ -42,7 +42,7 @@ class SubCategoryController extends Controller
     }
 
     public function edit($id){
-        $data['categories'] = Category::orderBy('name','ASC')->get();
+        $data['categories'] = Category::where('status',1)->orderBy('name','ASC')->get();
         $data['subcategory'] = SubCategory::findOrFail($id);
         return view('admin.subcategory.edit',$data);
     }
