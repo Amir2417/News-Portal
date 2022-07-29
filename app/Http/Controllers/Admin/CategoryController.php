@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use Carbon\Carbon;
+
 
 class CategoryController extends Controller
 {
@@ -23,11 +23,11 @@ class CategoryController extends Controller
             'name.required' => 'Please Write The Category Name',
 
         ]);
-        Category::insert([
-            'name' =>$request->name,
-            'slug' => strtolower(str_replace(' ','-',$request->name)),
-            'created_at'=>Carbon::now(),
-        ]);
+        $storeData = new Category();
+        $storeData-> name =$request->name;
+        $storeData ->slug = strtolower(str_replace(' ','-',$request->name));
+        $storeData->save();
+
 
         $notification = array(
             'message' => "Category Inserted Succesfully",
@@ -56,13 +56,10 @@ class CategoryController extends Controller
         return view('admin.category.edit',$data);
     }
     public function update(Request $request,$id){
-
-
-
-        Category::findOrFail($id)->update([
+        $update = Category::findOrFail($id)->update([
             'name' =>$request->name,
             'slug' => strtolower(str_replace(' ','-',$request->name)),
-            'created_at'=>Carbon::now(),
+
 
         ]);
         $notification = array(

@@ -37,21 +37,8 @@
             <li><a href="{{ route('all.subcategory') }}"><i class="ti-more"></i>All  SubCategory</a></li>
           </ul>
         </li>
-        {{-- Author Option  --}}
-        <li class="treeview">
-          <a href="#">
-            <i data-feather="message-circle"></i>
-            <span>Author</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('authors.index') }}"><i class="ti-more"></i>Add Author</a></li>
-            <li><a href="{{ route('authors.create') }}"><i class="ti-more"></i>All Author</a></li>
+        
 
-          </ul>
-        </li>
 
 
 
