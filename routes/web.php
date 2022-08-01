@@ -5,6 +5,10 @@ use App\Http\Controllers;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\GeneralSettingsController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +65,23 @@ Route::namespace('Admin')->group(function () {
 
 
 //Menu Controller
-Route::get('manage-menus/{id?}',[MenuController::class,'index']);
+// Route::get('manage-menus/{id?}',[MenuController::class,'index']);
+
+//General Settings
+Route::get('general/settings/', [GeneralSettingsController::class, 'index'])->name('general.settings');
+Route::post('general/settings/store/', [GeneralSettingsController::class, 'store'])->name('general.settings.store');
+Route::post('general/settings/update/{id}', [GeneralSettingsController::class, 'update'])->name('general.settings.update');
+Route::get('/inactive/{id}', [GeneralSettingsController::class, 'inactive']);
+Route::get('/edit/{id}', [GeneralSettingsController::class, 'edit']);
+Route::get('/delete/{id}', [GeneralSettingsController::class, 'delete']);
+Route::get('/active/{id}', [GeneralSettingsController::class, 'active'])->name('active');
+
+
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('products', ProductController::class);
+});
 
 

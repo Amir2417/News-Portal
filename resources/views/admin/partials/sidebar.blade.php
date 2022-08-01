@@ -37,8 +37,84 @@
             <li><a href="{{ route('all.subcategory') }}"><i class="ti-more"></i>All  SubCategory</a></li>
           </ul>
         </li>
-        
 
+
+        {{-- //Seetings Part --}}
+        <li class="treeview">
+            <a href="#">
+              <i class="ti-settings"></i>
+              <span>Seetings</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('general.settings') }}"><i class="ti-more"></i>General Seetings</a></li>
+
+              <li><a href=""><i class="ti-more"></i>All  SubCategory</a></li>
+            </ul>
+        </li>
+
+        {{-- //Users Part --}}
+        <li class="treeview">
+            <a href="#">
+            <i class="fas fa-user"></i>
+              <span>Users</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('users.index') }}"><i class="ti-more"></i>User Management</a></li>
+
+
+            </ul>
+        </li>
+        {{-- //Role Part --}}
+        <li class="treeview">
+            <a href="#">
+            <i class="fas fa-user"></i>
+              <span>Role</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('roles.index') }}"><i class="ti-more"></i>Role Management</a></li>
+
+
+            </ul>
+        </li>
+        {{-- //Products --}}
+        <li class="treeview">
+            <a href="#">
+            <i class="fas fa-user"></i>
+              <span>Product</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('products.index') }}"><i class="ti-more"></i>Product Management</a></li>
+
+
+            </ul>
+        </li>
+        {{-- //Permissions --}}
+        <li class="treeview">
+            <a href="#">
+            <i class="fas fa-user"></i>
+              <span>Permissions</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href=""><i class="ti-more"></i>Permissions Management</a></li>
+
+
+            </ul>
+        </li>
 
 
 
