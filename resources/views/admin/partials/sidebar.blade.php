@@ -23,7 +23,7 @@
 			<span>Dashboard</span>
           </a>
         </li>
-
+        @if (Auth::user()->hasPermissionTo('role-list') )
         <li class="treeview">
           <a href="#">
             <i data-feather="message-circle"></i>
@@ -37,8 +37,8 @@
             <li><a href="{{ route('all.subcategory') }}"><i class="ti-more"></i>All  SubCategory</a></li>
           </ul>
         </li>
-
-
+        @endif
+        @if (Auth::user()->hasPermissionTo('role-create') )
         {{-- //Seetings Part --}}
         <li class="treeview">
             <a href="#">
@@ -51,9 +51,63 @@
             <ul class="treeview-menu">
               <li><a href="{{ route('general.settings') }}"><i class="ti-more"></i>General Seetings</a></li>
 
-              <li><a href=""><i class="ti-more"></i>All  SubCategory</a></li>
+              <li class="treeview">
+                <a href="#">
+                  <i class="ti-settings"></i>
+                  <span>Footer Seetings</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{{ route('footer.settings.view') }}"><i class="ti-more"></i>Footer Seetings</a>
+
+                    </li>
+                    <li>
+                        <a href="{{ route('footer.settings.create') }}"><i class="ti-more"></i>Add Footer Seetings</a>
+
+                    </li>
+
+                </ul>
+            </li>
             </ul>
         </li>
+        @endif
+        @if (Auth::user()->hasPermissionTo('role-create') )
+        <li class="treeview">
+            <a href="#">
+            <i class="fas fa-user"></i>
+              <span>Articles</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('articles.index') }}"><i class="ti-more"></i>Article Management</a></li>
+              <li><a href="{{ route('articles.create') }}"><i class="ti-more"></i>Add Article</a></li>
+
+
+            </ul>
+        </li>
+        @endif
+        @if (Auth::user()->hasPermissionTo('role-list') )
+        <li class="treeview">
+            <a href="#">
+            <i class="fas fa-user"></i>
+              <span>Specific Articles</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('specific.articles.index') }}"><i class="ti-more"></i>Specific Article Management</a></li>
+              <li><a href="{{ route('articles.create') }}"><i class="ti-more"></i>Add Article</a></li>
+
+
+            </ul>
+        </li>
+        @endif
 
         {{-- //Users Part --}}
         <li class="treeview">
@@ -86,6 +140,7 @@
             </ul>
         </li>
         {{-- //Products --}}
+        @if (Auth::user()->hasPermissionTo('product-list') )
         <li class="treeview">
             <a href="#">
             <i class="fas fa-user"></i>
@@ -100,21 +155,8 @@
 
             </ul>
         </li>
-        {{-- //Permissions --}}
-        <li class="treeview">
-            <a href="#">
-            <i class="fas fa-user"></i>
-              <span>Permissions</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-right pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href=""><i class="ti-more"></i>Permissions Management</a></li>
+        @endif
 
-
-            </ul>
-        </li>
 
 
 
@@ -166,6 +208,6 @@
 		<!-- item-->
 		<a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
 		<!-- item-->
-		<a href="{{ route('logout') }}" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
+		<a href="{{ route('admin.logout') }}" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
 	</div>
   </aside>

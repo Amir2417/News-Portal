@@ -40,15 +40,15 @@
                                         </td>
                                         <td>
                                             {{-- Edit and Delete Option Start--}}
-                                            <a class="btn btn-primary" href="{{ route('subcategory.edit',$item->id) }}" title="Edit Data"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger" id="delete" href="{{ route('subcategory.delete',$item->id) }}" title="Delete Data"><i class="fa fa-trash"></i></a>
+                                            <a class="btn btn-primary" href="{{ url('subcategory/edit/ '.$item->id) }}" title="Edit Data"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-danger" id="delete" href="{{ url('subcategory/delete/'.$item->id) }}" title="Delete Data"><i class="fa fa-trash"></i></a>
                                             {{-- Edit and Delete Option End--}}
 
                                             {{-- Active and inactive Option  Start--}}
                                             @if($item->status ==1)
-                                            <a class="btn btn-primary" href="{{ route('subcategory.inactive',$item->id) }}" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
+                                            <a class="btn btn-primary" href="{{ url('subcategory/inactive/'.$item->id) }}" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
                                             @else
-                                            <a class="btn btn-primary" href="{{ route('subcategory.active',$item->id) }}" title="Active Now"><i class="fa fa-arrow-up"></i></a>
+                                            <a class="btn btn-primary" href="{{ url('subcategory/active/'.$item->id) }}" title="Active Now"><i class="fa fa-arrow-up"></i></a>
                                             @endif
                                             {{-- Active and inactive Option  End--}}
 
@@ -85,7 +85,7 @@
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
 
-							</div><br>
+							    </div><br>
                                 <div class="form-group">
                                         <h5>SubCategory Name<span class="text-danger">*</span></h5>
                                     <div class="controls">

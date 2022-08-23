@@ -24,7 +24,7 @@
         padding: 0 10px;
         -webkit-transition: background 0s ease-out 0s;
         -o-transition: background 0s ease-out 0s;
-        transition: background 0s ease-out 0s;        
+        transition: background 0s ease-out 0s;
         border-radius: $default-border-radius;
         -webkit-box-shadow: none;
         box-shadow: none;
@@ -34,14 +34,14 @@
             border-radius: 0;
             -webkit-box-shadow: none;
             box-shadow: none;
-            float: none; 
+            float: none;
             background-size: 100% 2px, 100% 1px;
             outline: 0;
             -webkit-transition-duration: .3s;
             -o-transition-duration: .3s;
             transition-duration: .3s;
         }
-        .focus{ 
+        .focus{
             background-size: 100% 2px, 100% 1px;
             outline: 0;
             -webkit-transition-duration: .3s;
@@ -88,7 +88,7 @@
 .demo-radio-button{
     label{
         min-width: 200px;
-        margin-bottom: 20px;  
+        margin-bottom: 20px;
     }
 }
 .demo-swtich{
@@ -100,7 +100,7 @@
     .switch{
         width: 150px;
         margin-bottom: 10px;
-        display: inline-block;  
+        display: inline-block;
     }
 }
 
@@ -108,9 +108,9 @@
    ========================================================================== */
 [type="radio"]:not(:checked),
 [type="radio"]:checked {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
+//   position: absolute;
+//   left: -9999px;
+//   opacity: 0;
 }
 
 [type="radio"]:not(:checked) + label,
@@ -196,7 +196,7 @@
 /* Focused styles */
 [type="radio"].tabbed:focus + label:before {
   box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
- animation: ripple 0.2s linear forwards;    
+ animation: ripple 0.2s linear forwards;
 }
 
 /* Disabled Radio With gap */
@@ -215,7 +215,7 @@
 [type="radio"]:disabled:checked + label:before {
   background-color: transparent;
   border-color: rgba(0, 0, 0, 0.26);
- animation: ripple 0.2s linear forwards;    
+ animation: ripple 0.2s linear forwards;
 }
 
 [type="radio"]:disabled + label {
@@ -244,10 +244,10 @@ form p:last-child {
 }
 
 /* Remove default checkbox */
-[type="checkbox"]:not(:checked),
+
 [type="checkbox"]:checked {
   position: absolute;
-  left: -9999px;
+  left: 9999px!important;
   opacity: 0;
 }
 
@@ -456,7 +456,7 @@ input[type="color"]{
     &.form-control{
         border-radius: 10rem;
         padding-left: 20px;
-        padding-right: 20px;  
+        padding-right: 20px;
     }
 }
 .form-type-round{
@@ -464,7 +464,7 @@ input[type="color"]{
         &.form-control{
             border-radius: 10rem;
             padding-left: 20px;
-            padding-right: 20px;  
+            padding-right: 20px;
         }
     }
 }
@@ -472,14 +472,14 @@ input[type="color"]{
     &.form-control{
         border-radius: 10rem;
         padding-left: 20px;
-        padding-right: 20px;  
+        padding-right: 20px;
     }
 }
 .form-type-round select:not([multiple]){
     &.form-control{
         border-radius: 10rem;
         padding-left: 20px;
-        padding-right: 20px;  
+        padding-right: 20px;
     }
 }
 .form-group{
@@ -488,10 +488,10 @@ input[type="color"]{
     }
     &.has-success {
         .help-block{
-           color: $success; 
+           color: $success;
         }
         label{
-            color: $success; 
+            color: $success;
         }
         .form-control{
             border-color: $success;
@@ -504,10 +504,10 @@ input[type="color"]{
     }
     &.has-warning {
         .help-block{
-           color: $warning; 
+           color: $warning;
         }
         label{
-            color: $warning; 
+            color: $warning;
         }
         .form-control{
             border-color: $warning;
@@ -520,10 +520,10 @@ input[type="color"]{
     }
     &.has-error {
         .help-block{
-           color: $danger; 
+           color: $danger;
         }
         label{
-            color: $danger; 
+            color: $danger;
         }
         .form-control{
             border-color: $danger;
@@ -541,7 +541,7 @@ input[type="color"]{
     border-color: darken($light, 10%);
     height: auto;
     &:focus{
-        box-shadow: none; 
+        box-shadow: none;
     }
     @include placeholder{
         color: lighten($black, 85%);
@@ -605,7 +605,7 @@ textarea{
 }
 .form-control-feedback{
     &.fa{
-       line-height: 34px; 
+       line-height: 34px;
     }
 }
 .form-group-lg{
@@ -619,19 +619,19 @@ textarea{
 }
 .form-group-sm{
     .form-control+.form-control-feedback.fa{
-       line-height: 30px; 
-    } 
+       line-height: 30px;
+    }
 }
 .input-group-sm+.form-control-feedback.fa{
-    line-height: 30px; 
+    line-height: 30px;
 }
 .input-sm+.form-control-feedback.fa{
     line-height: 30px;
 }
 .form-group-feedback{
-   position: relative; 
+   position: relative;
     &.form-group-feedback-right{
-        .form-control-feedback{            
+        .form-control-feedback{
             position: absolute;
             top: 0;
             color: lighten($black, 20%);
@@ -645,21 +645,21 @@ textarea{
 .form-group-feedback-right{
     .form-control-feedback {
         right: 0;
-    }    
+    }
 }
 .input-group-lg{
     &+.form-control-feedback{
         &.fa{
             line-height: 46px;
         }
-    } 
+    }
 }
 .input-lg{
     &+.form-control-feedback{
         &.fa{
-           line-height: 46px; 
+           line-height: 46px;
         }
-    } 
+    }
 }
 
 /*Bootstrap select*/
@@ -668,11 +668,11 @@ textarea{
     .btn-group{
         .dropdown-menu{
             -webkit-box-shadow: 0 1px 4px 0 rgba($black, .1);
-            box-shadow: 0 1px 4px 0 rgba($black, .1); 
+            box-shadow: 0 1px 4px 0 rgba($black, .1);
         }
     }
     &:not([class*=col-]):not([class*=form-control]):not(.input-group-btn){
-        width: 100%;  
+        width: 100%;
     }
     .dropdown-menu{
         li{
@@ -683,7 +683,7 @@ textarea{
                 font-weight: 400;
                 line-height: 1.42857143;
                 color: $dark;
-                white-space: nowrap; 
+                white-space: nowrap;
                 @include hover-focus-state{
                     color: $primary;
                     background: $light;
@@ -693,7 +693,7 @@ textarea{
     }
     .show{
         >.dropdown-menu{
-           display: block; 
+           display: block;
         }
     }
     &.btn-group{
@@ -702,14 +702,14 @@ textarea{
             box-shadow: 0 1px 4px 0 rgba($black, .1);
             li{
                 &.divider{
-                   margin: 0.2rem auto; 
+                   margin: 0.2rem auto;
                 }
                 a{
                     span{
                         &.text{
                             letter-spacing: inherit;
                         }
-                    }  
+                    }
                 }
             }
         }
@@ -718,7 +718,7 @@ textarea{
 .bootstrap-touchspin{
     .input-group-btn-vertical{
         >.btn{
-            padding: 9px 10px; 
+            padding: 9px 10px;
         }
     }
 }
