@@ -57,9 +57,9 @@
 
                     <!-- <i class="fa-solid fa-magnifying-glass fs-2 d-block px-4 m-auto"></i> -->
                     <!-- Search bar end -->                </div>
-                <h5 class=""><?php
+                <p class="date"><?php
                    echo date("l, d F, Y");
-                    ?></h5>
+                    ?></p>
             </div>
             <!-- Center Logo -->
             <div class="center d-flex">
@@ -108,24 +108,28 @@
             $articles = App\Models\Article::latest()->where('status',1)->limit(5)->get();
         @endphp
         <div class="featured-news">
-            <section class="col-lg-8 col-md-12 col-sm-12 row m-3">
+            <section class="col-lg-8 col-md-12 col-sm-12 row m-3" style = "height: 160px">
                 @foreach ($articles as $article)
-                    <div class="col-12 col-lg-4 border col-md-6 col-sm-12 row p-3">
-                        <div class="col-lg-7 col-md-7 col-sm-12 p-0">
-                            <a class = "news-heading text-decoration-none text-dark" href="#">
-                                <h5 class = "bangla">{{ $article->title }}</h5>
+                <div class="col-lg-4 col-md-6 col-sm-12 featured-items"  style = "height: 150px;">
+                    <article class="news-item border-end border-bottom row" style = "height: 150px;padding: 10px 0">
+                        <article class="col-12 col-lg-6 col-md-6 col-sm-12">
+                            <a class="news-heading text-decoration-none text-dark" href="{{ url('article/details/'.$article->id)}}">
+                                <h5 class="news-heading bangla" >{{ $article->title }}</h5>
                             </a>
-                        </div>
-                        <div class="col-lg-5 col-md-5 col-sm-12">
-                            <img style = "height: 80px" class= "img-fluid" src="{{ $article->image }}" alt="">
-                        </div>
-                    </div>
+                            <p class = "time bangla">২ ঘণ্টা আগে</p>
+                        </article>
+                        <figure class="col-12 col-lg-6 col-md-6 col-sm-12">
+                            <img class="img-fluid" style = "height: 90px" src="{{ $article->image }}" alt="">
+                            <figcaption></figcaption>
+                        </figure>
+                    </article>
+                </div>
                 @endforeach
             </section>
 
 
             <!-- Right Sidebar -->
-            <aside class="col-lg-2 col-md-12 col-sm-12 border-start row">
+            <aside class="col-lg-2 col-md-12 col-sm-12 row">
                 <article class="col-12 col-lg-12 col-md-6 col-sm-12">
                     <figure>
                         <img src="./images/news/2.webp" alt="">
@@ -169,8 +173,8 @@
                 </article>
 
             </aside>
-            <div class = "col-lg-2 col-md-12 col-sm-12 border-start rows">
-                advertisment
+            <div class = "col-lg-2 col-md-12 col-sm-12 border-start rows d-flex align-items-center justify-content-center">
+                <p class = "text-center">Here will be placed advertisment</p>
 
             </div>
         </div>
@@ -195,7 +199,6 @@
                             <a class="news-heading text-decoration-none text-dark" href="{{ url('article/details/'.$sport->id)}}">
                                 <h4 class="bangla news-heading">{{ $sport->title }}</h4>
                             </a>
-                            <p>This is news short description</p>
                             <p class = "time bangla">{{ $sport->created_at->diffForHumans() }}</p>
                             
                         </div>
@@ -263,10 +266,6 @@
                             <img class="img-fluid mx-auto d-block" src="{{ $news->image }}" alt="">
                         <article>
                             <a class="news-heading text-decoration-none text-dark" href="{{ url('article/details/'.$news->id)}}"><h4 class="bangla news-heading">{{ $news->title }}</h4></a>
-                            <p class="bangla">
-                                <!-- {!! Str::limit($news->long_description, 50) !!} -->
-                                This is news description
-                            </p>
                             <p class="time bangla">
                                 {{ $news->created_at->diffForHumans() }}
                             </p>
