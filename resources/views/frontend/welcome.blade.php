@@ -108,97 +108,24 @@
             $articles = App\Models\Article::latest()->where('status',1)->limit(5)->get();
         @endphp
         <div class="featured-news">
-            <section class="col-12 col-lg-9 col-md-12 col-sm-12 row p-3">
+            <section class="col-lg-8 col-md-12 col-sm-12 row m-3">
                 @foreach ($articles as $article)
-                    <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-                        <article class="first-featured-news border-end row">
-                            <article class="col-12 col-lg-6 col-md-6 col-sm-12">
-                                <a class="news-heading text-decoration-none text-dark" href="{{ url('article/details/'.$article->id)}}">
-                                    <h3 class="news-heading bangla" >{{ $article->title }}</h3>
-                                </a>
-                                <p class = "bangla">{!! Str::limit($article->long_description, 50) !!}</p>
-                                <p class = "time bangla">{{ $article->created_at->diffForHumans() }}</p>
-                            </article>
-                            <figure class="col-12 col-lg-6 col-md-6 col-sm-12">
-                                <img class="img-fluid" src="{{ $article->image }}" alt="">
-                                <figcaption></figcaption>
-                            </figure>
-                        </article>
+                    <div class="col-12 col-lg-4 border col-md-6 col-sm-12 row p-3">
+                        <div class="col-lg-7 col-md-7 col-sm-12 p-0">
+                            <a class = "news-heading text-decoration-none text-dark" href="#">
+                                <h5 class = "bangla">{{ $article->title }}</h5>
+                            </a>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <img style = "height: 80px" class= "img-fluid" src="{{ $article->image }}" alt="">
+                        </div>
                     </div>
                 @endforeach
-
-                {{-- <div class="col-12 col-lg-4 col-md-6 col-sm-12">
-                    <article class="">
-                        <a class="news-heading text-decoration-none text-dark" href="/single-post.html">
-
-                            <h4 class="news-heading bangla" >যুক্তরাষ্ট্রে শপিং মলে ৩ জনকে হত্যার পর গুলিতে বন্দুকধারী নিহত</h4>
-                        </a>
-                        <p class = "bangla">গুলির শব্দ শুনে ক্রেতা ও শপিং মলের কর্মীরা দিগ্‌বিদিক ছুটতে থাকেন এবং লুকিয়ে পড়েন। হতাহত ব্যক্তিদের, বন্দুকধারী কিংবা ওই পথচারীর নাম প্রকাশ করেনি পুলিশ।</p>
-                        <p class = "time bangla">২ ঘণ্টা আগে</p>
-                    </article>
-                </div>
-                <div class="col-12 col-lg-4 col-md-6 col-sm-12>
-                    <article class="article-desc">
-                        <h4 class="news-heading bangla" >শ্রীলঙ্কায় আজ থেকে জরুরি অবস্থা</h4>
-                        <p class = "bangla">চলতি ২০২২–২৩ অর্থবছর থেকে স্ট্যাম্প ডিউটিতে মানুষকে পুড়তে হবে। কারণ, গত ১ জুলাই থেকে সব ধরনের স্ট্যাম্প ডিউটি পাঁচ গুণ পর্যন্ত বাড়ানো</p>
-                        <p class = "time bangla">১ ঘণ্টা আগে</p>
-                    </article>
-                </div>
-                <div class="col-12 col-lg-4 col-md-6 col-sm-12>
-                    <article class="article-desc">
-                        <h4 class="news-heading bangla" >এনবিআর–বহির্ভূত কর পদে পদে স্ট্যাম্প ডিউটি বাড়ল</h4>
-                        <p class = "bangla">গুলির শব্দ শুনে ক্রেতা ও শপিং মলের কর্মীরা দিগ্‌বিদিক ছুটতে থাকেন এবং লুকিয়ে পড়েন। হতাহত ব্যক্তিদের, বন্দুকধারী কিংবা ওই পথচারীর নাম প্রকাশ করেনি পুলিশ।</p>
-                        <p class = "time bangla">২ ঘণ্টা আগে</p>
-                    </article>
-                </div>
-                <div class="col-12 col-lg-4 col-md-6 col-sm-12>
-                    <article class="article-desc">
-                        <h4 class="news-heading bangla" >মতামত বিদ্যুৎ-সংকট এবং ‘দায়মুক্তি’ আইনের দায়</h4>
-                        <p class="bangla">এ আইন থেকে স্পষ্ট যে বিদ্যুতের জন্য জ্বালানি আমদানি অথবা বিদ্যুৎকেন্দ্র স্থাপন অথবা বিদ্যুৎ ও জ্বালানি খাতে অন্য কোনো কার্যক্রম, গৃহীত</p>
-                        <p class="time bangla">৪ ঘণ্টা আগে</p>
-                    </article>
-                </div> --}}
-
-
-
-                {{-- <article class="col-12 col-lg-4 col-md-6 col-sm-12 d-flex pe-3 border-end">
-                    <div class="border-0">
-                        <h5 class="news-heading bangla" >প্যাসিফিক জিনস গ্রুপ জিনস রপ্তানির পথ দেখিয়েছিল যে প্রতিষ্ঠান</h5>
-                        <p class="time bangla">৪ ঘণ্টা আগে</p>
-                    </div>
-                    <figure class="">
-                        <img src="./images/news/3.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                </article>
-                <article class="col-12 col-lg-4 col-md-6 col-sm-12 d-flex pe-3 border-end">
-                    <div class="border-0">
-                        <h5 class="news-heading bangla" >প্যাসিফিক জিনস গ্রুপ জিনস রপ্তানির পথ দেখিয়েছিল যে প্রতিষ্ঠান</h5>
-                        <p class="time bangla">৪ ঘণ্টা আগে</p>
-                    </div>
-                    <figure class="">
-                        <img src="./images/news/3.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                </article>
-                <article class="col-12 col-lg-4 col-md-6 col-sm-12 d-flex pe-3">
-                    <div class="border-0">
-                        <h5 class="news-heading bangla" >প্যাসিফিক জিনস গ্রুপ জিনস রপ্তানির পথ দেখিয়েছিল যে প্রতিষ্ঠান</h5>
-                        <p class="time bangla">৪ ঘণ্টা আগে</p>
-                    </div>
-                    <figure class="">
-                        <img src="./images/news/3.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                </article> --}}
-
-
-
             </section>
 
 
             <!-- Right Sidebar -->
-            <aside class="col-12 col-lg-3 col-md-12 col-sm-12 border-start row">
+            <aside class="col-lg-2 col-md-12 col-sm-12 border-start row">
                 <article class="col-12 col-lg-12 col-md-6 col-sm-12">
                     <figure>
                         <img src="./images/news/2.webp" alt="">
@@ -242,6 +169,10 @@
                 </article>
 
             </aside>
+            <div class = "col-lg-2 col-md-12 col-sm-12 border-start rows">
+                advertisment
+
+            </div>
         </div>
 
         <!-- Sidebar Post Section End -->
@@ -258,20 +189,16 @@
             </h3><br>
             <div class="row">
                 @foreach ($sports as $sport)
-                <article class="col-12 col-lg-3 col-md-6 col-sm-12 p-3 border-end">
-                    <figure>
-                        <img class="img-fluid mx-auto d-block" src="{{ $sport->image }}" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                    <article>
-                        <a class="news-heading text-decoration-none text-dark" href="{{ url('article/details/'.$sport->id)}}"><h4 class="bangla news-heading">{{ $sport->title }}</h4></a>
-                        <p class="bangla">
-                            {!! Str::limit($sport->long_description, 50) !!}
-                        </p>
-                        <p class="time bangla">
-                            {{ $sport->created_at->diffForHumans() }}
-                        </p>
-                    </article>
+                <article class="col-lg-3 col-md-6 col-sm-12 p-3 border-end">
+                        <img class = "img-fluid" style = "height: 250px" src="{{ $sport->image }}" alt="">
+                        <div>
+                            <a class="news-heading text-decoration-none text-dark" href="{{ url('article/details/'.$sport->id)}}">
+                                <h4 class="bangla news-heading">{{ $sport->title }}</h4>
+                            </a>
+                            <p>This is news short description</p>
+                            <p class = "time bangla">{{ $sport->created_at->diffForHumans() }}</p>
+                            
+                        </div>
                 </article>
                 @endforeach
 
@@ -332,14 +259,13 @@
             <div class="row">
                 @foreach ($latest_news as $news)
                     <article class="col-12 col-lg-3 col-md-6 col-sm-12 p-3 border-end">
-                        <figure>
+                        
                             <img class="img-fluid mx-auto d-block" src="{{ $news->image }}" alt="">
-                            <figcaption></figcaption>
-                        </figure>
                         <article>
                             <a class="news-heading text-decoration-none text-dark" href="{{ url('article/details/'.$news->id)}}"><h4 class="bangla news-heading">{{ $news->title }}</h4></a>
                             <p class="bangla">
-                                {!! Str::limit($news->long_description, 50) !!}
+                                <!-- {!! Str::limit($news->long_description, 50) !!} -->
+                                This is news description
                             </p>
                             <p class="time bangla">
                                 {{ $news->created_at->diffForHumans() }}
