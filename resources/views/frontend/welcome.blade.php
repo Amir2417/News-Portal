@@ -108,80 +108,30 @@
             $articles = App\Models\Article::latest()->where('status',1)->limit(5)->get();
         @endphp
         <div class="featured-news">
-            <section class="col-lg-8 col-md-12 col-sm-12 row m-3" style = "height: 160px">
+            <section class="col-lg-9 col-md-12 col-sm-12 row m-3">
                 @foreach ($articles as $article)
-                <div class="col-lg-4 col-md-6 col-sm-12 featured-items"  style = "height: 150px;">
-                    <article class="news-item border-end border-bottom row" style = "height: 150px;padding: 10px 0">
-                        <article class="col-12 col-lg-6 col-md-6 col-sm-12">
-                            <a class="news-heading text-decoration-none text-dark" href="{{ url('article/details/'.$article->id)}}">
-                                <h5 class="news-heading bangla" >{{ $article->title }}</h5>
+                <div class="col-lg-3 col-md-6 col-sm-12 featured-items border-end border-bottom mt-3">
+                    <article class="d-flex">
+                        <div class="border-0 col-6">
+                            <a class = "text-dark text-decoration-none" href="{{ url('article/details/'.$article->id)}}">
+                            <h5 class="news-heading bangla" >{{ $article->title }}</h5>
                             </a>
-                            <p class = "time bangla">২ ঘণ্টা আগে</p>
-                        </article>
-                        <figure class="col-12 col-lg-6 col-md-6 col-sm-12">
-                            <img class="img-fluid" style = "height: 90px" src="{{ $article->image }}" alt="">
-                            <figcaption></figcaption>
-                        </figure>
+                            <p class="time bangla">৪ ঘণ্টা আগে</p>
+                        </div>
+                        <div class="">
+                            <img class = "img-fluid" style = "height: 100px;" src="{{ $article->image }}" alt="">
+                        </div>
                     </article>
                 </div>
                 @endforeach
             </section>
-
-
-            <!-- Right Sidebar -->
-            <aside class="col-lg-2 col-md-12 col-sm-12 row">
-                <article class="col-12 col-lg-12 col-md-6 col-sm-12">
-                    <figure>
-                        <img src="./images/news/2.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                    <div class="article-desc-right">
-                        <h4 class="news-heading bangla" >তিন জেলায় মন্দির-মণ্ডপে হামলা ৯ মাসেও তদন্ত শেষ হয়নি</h4>
-                        <p class="time bangla">৪ ঘণ্টা আগে</p>
-                    </div>
-                    <hr>
-                </article>
-                <article class="col-12 col-lg-12 col-md-6 col-sm-12 d-flex">
-                    <div class="article-desc-right">
-                        <h5 class="news-heading bangla" >প্যাসিফিক জিনস গ্রুপ জিনস রপ্তানির পথ দেখিয়েছিল যে প্রতিষ্ঠান</h5>
-                        <p class="time bangla">৪ ঘণ্টা আগে</p>
-                    </div>
-                    <figure>
-                        <img src="./images/news/3.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                </article>
-                <article class="col-12 col-lg-12 col-md-6 col-sm-12 d-flex">
-                    <div class="article-desc-right">
-                        <h5 class="news-heading bangla" >প্যাসিফিক জিনস গ্রুপ জিনস রপ্তানির পথ দেখিয়েছিল যে প্রতিষ্ঠান</h5>
-                        <p class="time bangla">৪ ঘণ্টা আগে</p>
-                    </div>
-                    <figure>
-                        <img src="./images/news/3.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                </article>
-                <article class="col-12 col-lg-12 col-md-6 col-sm-12 d-flex">
-                    <div class="article-desc-right">
-                        <h5 class="news-heading bangla" >প্যাসিফিক জিনস গ্রুপ জিনস রপ্তানির পথ দেখিয়েছিল যে প্রতিষ্ঠান</h5>
-                        <p class="time bangla">৪ ঘণ্টা আগে</p>
-                    </div>
-                    <figure>
-                        <img src="./images/news/3.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                </article>
-
-            </aside>
-            <div class = "col-lg-2 col-md-12 col-sm-12 border-start rows d-flex align-items-center justify-content-center">
+            <!-- Advertisment Section -->
+            <div class = "col-lg-3 col-md-12 col-sm-12 border-start rows d-flex align-items-center justify-content-center">
                 <p class = "text-center">Here will be placed advertisment</p>
-
             </div>
+
+            
         </div>
-
-        <!-- Sidebar Post Section End -->
-
-
 
         <!-- Category Post Section Start -->
 @php
@@ -204,58 +154,14 @@
                         </div>
                 </article>
                 @endforeach
-
-                {{-- <article class="col-12 col-lg-3 col-md-6 col-sm-12 p-3 border-end">
-                    <figure>
-                        <img class="img-fluid mx-auto d-block" src="./images/news/5.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                    <article>
-                        <h4 class="bangla news-heading">ঢাকায় ইউরোপীয় পার্লামেন্টের প্রতিনিধিদল শ্রম অধিকার ও ব্যবসা পরিস্থিতি নিয়ে মতবিনিময়</h4>
-                        <p class="bangla">
-                            ইউরোপীয় পার্লামেন্টের বাণিজ্য কমিটির সফররত প্রতিনিধিদলের অন্যতম সদস্য এগনেস ইয়নজেরিউস শ্রমিকনেতাদের সঙ্গে মতবিনিময়ে
-                        </p>
-                        <p class="time bangla">
-                            ৮ ঘণ্টা আগে
-                        </p>
-                    </article>
-                </article>
-                <article class="col-12 col-lg-3 col-md-6 col-sm-12 p-3 border-end">
-                    <figure>
-                        <img class="img-fluid mx-auto d-block" src="./images/news/6.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                    <article>
-                        <h4 class="bangla news-heading">হাজারীবাগের ধারালো অস্ত্রের আঘাতে যুবক খুন</h4>
-                        <p class="bangla">
-                            হাজারীবাগ থানার উপপরিদর্শক (এসআই) শাওন বিশ্বাস জানান, খবর পেয়ে আলী হোসেন গার্লস স্কুল গলির খুশবুহ রেস্টুরেন্টের সামনে থেকে র
-                        </p>
-                        <p class="time bangla">
-                            ৮ ঘণ্টা আগে
-                        </p>
-                    </article>
-                </article>
-                <article class="col-12 col-lg-3 col-md-6 col-sm-12 p-3">
-                    <figure>
-                        <img class="img-fluid mx-auto d-block" src="./images/news/4.webp" alt="">
-                        <figcaption></figcaption>
-                    </figure>
-                    <article>
-                        <h4 class="bangla news-heading">ইন্টারকন্টিনেন্টালে প্রকৌশলীর মৃত্যু অর্থ আত্মসাতের জন্য পরিকল্পিতভাবে হত্যা, দাবি পরিবারের</h4>
-                        <p class="bangla">
-                            বাজেটের বেঁচে যাওয়া টাকা অতিরিক্ত খরচ দেখিয়ে আত্মসাৎ করতে চেয়েছিলেন হোটেলটির কয়েকজন কর্মকর্তা। এ জন্য প্রকৌশলী সুব্রত সাহাকে চাপ দিচ্ছিলেন তাঁরা। কিন্তু তাঁদের প্রস্তাবে
-                        </p>
-                        <p class="time bangla">
-                            ৮ ঘণ্টা আগে
-                        </p>
-                    </article>
-                </article> --}}
             </div>
             <hr>
 
+
+            <!-- Latest News Section -->
             @php
             $latest_news = App\Models\Article::where('status',1)->where('latest_news',1)->limit(4)->orderBy('id','DESC')->get();
-        @endphp
+            @endphp
             <h3 class="bangla">Latest News
                 <i class="fa-solid fa-angle-right"></i>
             </h3><br>
@@ -272,8 +178,6 @@
                         </article>
                     </article>
                 @endforeach
-
-
             </div>
             <hr>
         </div>
