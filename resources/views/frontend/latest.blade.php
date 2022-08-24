@@ -111,12 +111,12 @@
                                 {{ $post->title }}</h4>
                         </a>
                             <div class="bangla news-desc">
-                                {!! Str::limit($post->long_description, 50) !!}
+                                <!-- {!! Str::limit($post->long_description, 50) !!} -->
                             </div>
                             <div class="time bangla">{{  $post->created_at->diffForHumans() }}</div>
                     </article>
                     <figure class="col-5">
-                        <img class="img-fluid" src="{{ asset($post->image) }}" alt="">
+                        <img style = "height: 200px" class="img-fluid" src="{{ asset($post->image) }}" alt="">
                     </figure>
                     <hr>
                 </article>
