@@ -10,6 +10,10 @@ use Carbon\Carbon;
 
 class SubCategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $data['categories'] = Category::where('status',1)->orderBy('name','ASC')->get();
         $data['subcategory'] = SubCategory::latest()->get();

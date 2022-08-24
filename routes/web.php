@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\GeneralSettingsController;
 use App\Http\Controllers\Admin\FooterSettingsController;
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\GeneralMenuController;
+use App\Http\Controllers\Admin\FooterMenuController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -82,12 +84,34 @@ Route::get('/delete/{id}', [FooterSettingsController::class, 'delete']);
 Route::get('articles/', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('articles/create', [ArticleController::class, 'create'])->name('articles.create');
 Route::post('articles/store', [ArticleController::class, 'store'])->name('articles.store');
-
 Route::get('articles/edit/{id}', [ArticleController::class, 'edit']);
+Route::get('articles/view/{id}', [ArticleController::class, 'view']);
 Route::post('articles/update/{id}', [ArticleController::class, 'update'])->name('articles.update');
 Route::get('articles/delete/{id}', [ArticleController::class, 'delete']);
+Route::get('/article/inactive/{id}',[ArticleController::class,'inactive'])->name('inactive');
+Route::get('/article/active/{id}',[ArticleController::class,'active']);
+Route::get('article/reject/{id}',[ArticleController::class,'reject']);
 Route::get('show', [ArticleController::class, 'show'])->name('specific.articles.index');
 
+//General Menu
+Route::get('general/menu/', [GeneralMenuController::class, 'index'])->name('general.menu.list');
+Route::get('general/menu/show/', [GeneralMenuController::class, 'show'])->name('general.menu.show');
+Route::post('general/menu/store/', [GeneralMenuController::class, 'store'])->name('general.menu.store');
+Route::get('general_menu/edit/{id}', [GeneralMenuController::class, 'edit']);
+Route::post('general/menu/update/{id}', [GeneralMenuController::class, 'update']);
+Route::get('general_menu/delete/{id}', [GeneralMenuController::class, 'destroy']);
+Route::get('general_menu/inactive/{id}', [GeneralMenuController::class, 'inactive']);
+Route::get('general_menu/active/{id}', [GeneralMenuController::class, 'active']);
+
+//Footer Menu
+Route::get('footer_menu', [FooterMenuController::class, 'index'])->name('footer.menu.view');
+Route::get('footer_menu/show/', [FooterMenuController::class, 'show'])->name('footer.menu.show');
+Route::post('footer_menu/store/', [FooterMenuController::class, 'store']);
+Route::get('footer_menu/edit/{id}', [FooterMenuController::class, 'edit']);
+Route::post('footer_menu/update/{id}', [FooterMenuController::class, 'update']);
+Route::get('footer_menu/delete/{id}', [FooterMenuController::class, 'destroy']);
+Route::get('footer_menu/inactive/{id}', [FooterMenuController::class, 'inactive']);
+Route::get('footer_menu/active/{id}', [FooterMenuController::class, 'active']);
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);

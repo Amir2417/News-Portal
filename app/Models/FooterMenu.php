@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GeneralSettings extends Model
+class FooterMenu extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'general_menu_id',
         'title',
-        'favicon_image',
-        'logo_image',
-        'advertisement_image',
+        'link',
         'status',
     ];
+    public function general_menu(){
+        return $this->belongsTo(GeneralMenu::class,'general_menu_id','id');
+    }
 }

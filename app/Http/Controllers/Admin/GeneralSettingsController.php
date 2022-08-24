@@ -9,6 +9,10 @@ use Image;
 
 class GeneralSettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $items = GeneralSettings::latest()->get();
         return view('admin.seetings.general_seetings.index',compact('items'));
@@ -92,5 +96,5 @@ class GeneralSettingsController extends Controller
         GeneralSettings::findOrFail($id)->delete();
         return Redirect()->route('general.settings');
     }
-    
+
 }

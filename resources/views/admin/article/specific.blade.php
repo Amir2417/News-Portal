@@ -31,6 +31,7 @@
                                         <th>Title</th>
                                         <th>Date</th>
                                         <th>Image</th>
+                                        <th>Status</th>
 
                                         <th>Action</th>
 
@@ -45,7 +46,15 @@
                                         <td>{{$item->title}}</td>
                                         <td>{{$item->date}}</td>
                                         <td><img src="{{ asset($item->image) }}" style="width: 40px;height:35px"></td>
-
+                                        <td>
+                                            @if($item->status ==1)
+                                                <span class="badge badge-pill badge-success">Approved</span>
+                                            @elseif ($item->status ==2)
+                                                <span class="badge badge-pill badge-danger">Reject</span>
+                                            @else
+                                                <span class="badge badge-pill badge-warning ">Pending</span>
+                                            @endif
+                                        </td>
 
                                         <td width="20%">
                                             {{-- Edit and Delete Option Start--}}

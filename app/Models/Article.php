@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'cat_id',
         'subcat_id',
@@ -20,6 +21,7 @@ class Article extends Model
         'latest_news',
         'sports',
         'long_description',
+        'status'
 
     ];
     public function category(){

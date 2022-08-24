@@ -19,5 +19,6 @@ class FooterSettings extends Model
         'contact_email',
         'contact_subject',
         'contact_message',
+        'status',
     ];
 }

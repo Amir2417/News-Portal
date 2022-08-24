@@ -9,6 +9,10 @@ use App\Models\FooterSettings;
 
 class FooterSettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $items = FooterSettings::latest()->get();
         return view('admin.seetings.footer_seetings.index',compact('items'));
@@ -90,6 +94,6 @@ class FooterSettingsController extends Controller
 
 
     //delete method end
-    
+
 
 }

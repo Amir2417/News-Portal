@@ -26,7 +26,7 @@ class CreateArticlesTable extends Migration
             $table->integer('latest_news')->nullable();
             $table->integer('sports')->nullable();
             $table->text('long_description');
-            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

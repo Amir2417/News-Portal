@@ -12,6 +12,10 @@ use Auth;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $items = Article::latest()->get();
         return view('admin.article.index',compact('items'));
@@ -140,7 +144,38 @@ class ArticleController extends Controller
         return Redirect()->back()->with($notification);
     }
     public function show(){
-        $articles = Article::where('name',Auth::user()->name)->get();
+        $articles = Article::latest()->where('name',Auth::user()->name)->get();
         return view('admin.article.specific',compact('articles'));
+    }
+    public function inactive($id){
+        Article::findOrFail($id)->update(['status'=> 0]);
+
+        $notification = array(
+            'message' =>'Article Inactive Successfully',
+            'alert-type'=>"success",
+        );
+        return Redirect()->route('articles.index')->with($notification);
+    }
+    public function active($id){
+        $ar = Article::findOrFail($id)->update(['status'=> 1]);
+
+        $notification = array(
+            'message' =>'Article active Successfully',
+            'alert-type'=>"success",
+        );
+        return Redirect()->route('articles.index')->with($notification);
+    }
+    public function reject($id){
+        $ar = Article::findOrFail($id)->update(['status'=> 2]);
+
+        $notification = array(
+            'message' =>'Article Reject Successfully',
+            'alert-type'=>"success",
+        );
+        return Redirect()->route('articles.index')->with($notification);
+    }
+    public function view($id){
+        $items = Article::findOrFail($id);
+        return view('admin.article.view',compact('items'));
     }
 }

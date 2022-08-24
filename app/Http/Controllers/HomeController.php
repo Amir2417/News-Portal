@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function CatProduct($id){
 
         $article = Article::where('cat_id',$id)->latest()->get();
-        $categories = Category::orderBy('name','ASC')->get();
+        $categories = Category::findOrFail($id);
         $items = GeneralSettings::latest()->get();
 		return view('frontend.latest',compact('article','categories','items'));
 

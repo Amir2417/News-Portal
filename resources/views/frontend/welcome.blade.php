@@ -8,7 +8,7 @@
         $items = App\Models\GeneralSettings::where('status',1)->limit(1)->get();
     @endphp
     @foreach ($items as $item)
-    <title> {{ $item->title }} </title>
+    <title>{{ $item->title }}</title>
     @endforeach
 
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">

@@ -9,6 +9,10 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $data['category']= Category::latest()->get();
         return view('admin.category.create',$data);
