@@ -259,7 +259,7 @@
 
         <hr>
 
-        <!-- Down Section Related News -->
+        {{-- <!-- Down Section Related News -->
         <div class="down-related-news bangla">
             <h5 class="bangla">ইউক্রেন নিয়ে আরও পড়ুন
             </h5>
@@ -301,7 +301,7 @@
 
                 </article>
             </div>
-        </div>
+        </div> --}}
 
 
 
@@ -321,69 +321,43 @@
 
 
 
-
+    @php
+    $menus = App\Models\GeneralMenu::latest()->where('status',1)->limit(10)->get();
+@endphp
     <!-- Footer Section Start -->
     <footer class="p-3">
         <img class="footer-logo" src="./images/logo.png" alt="">
         <div class="row d-none d-lg-flex py-5 footer-tags">
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">চাকরি</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">গোলটেবিল</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">বিশেষ সংখ্যা</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">একটু থামুন</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">অন্য আলো</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">কিশোর আলো</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">চিরন্তন ১৯৭১</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">বিজ্ঞান চিন্তা</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">প্রতি চিন্তা</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">প্রথমা</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">বন্ধু সভা</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">ট্রাস্ট</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">মোবাইল ভ্যাস</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">নাগরিক সংবাদ</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">এবিসি রেডিও</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">ই-পেপার</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">English Edition</a>
+            @foreach ($menus as $menu)
+                <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">{{ $menu->name }}</a>
+            @endforeach
         </div>
-        <div class="footer-tags d-lg-none py-5 d-md-block text-center">
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">চাকরি</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">গোলটেবিল</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">বিশেষ সংখ্যা</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">একটু থামুন</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">অন্য আলো</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">কিশোর আলো</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">চিরন্তন ১৯৭১</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">বিজ্ঞান চিন্তা</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">প্রতি চিন্তা</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">প্রথমা</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">বন্ধু সভা</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">ট্রাস্ট</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">মোবাইল ভ্যাস</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">নাগরিক সংবাদ</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">এবিসি রেডিও</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">ই-পেপার</a>
-            <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">English Edition</a>
-        </div>
+
         <hr>
 
+        @php
+    $social_media = App\Models\FooterSettings::latest()->limit(1)->get();
+@endphp
         <div class="social-section row">
             <div class="col-lg-6 row">
+                @foreach ($social_media as $data )
                 <div class="col-lg-6 text-center">
                     <p class="bangla"> অনুসরণ করুন </p>
 
-                        <i class="text-primary p-2 fs-4 rounded-circle fa-brands fa-facebook">
-
-                            <a href="#"></a>
-                        </i>
+                    <a href="{{ $data->fb_url }}"><i class="text-primary p-2 fs-4 rounded-circle fa-brands fa-facebook">
 
 
-                        <i class="text-primary p-2 fs-4 rounded-circle fa-brands fa-instagram">
-                            <a href="#"></a>
-                        </i>
+                    </i></a>
 
 
-                        <i class="text-primary p-2 fs-4 rounded-circle fa-brands fa-twitter">
-                            <a href="#"></a>
-                        </i>
+                    <a href="{{ $data->linkedin_url }}"><i class="text-primary p-2 fs-4 rounded-circle fa-brands fa-linkedin">
+
+                    </i></a>
+
+
+                    <a href="{{ $data->twitter_url }}"><i class="text-primary p-2 fs-4 rounded-circle fa-brands fa-twitter">
+
+                    </i></a>
 
 
                         <i class="text-primary p-2 fs-4 rounded-circle fa-brands fa-youtube">
@@ -391,6 +365,8 @@
                         </i>
 
                 </div>
+                @endforeach
+
 
 
             </div>
@@ -401,7 +377,7 @@
                         মোবাইল অ্যাপস ডাউনলোড করুন
 
                     </p>
-                    <img class="w-100 mx-auto" src="./images/download-app.jpg" alt="">
+                    <img class="img-fluid mx-auto" src="./images/download-app.jpg" alt="">
                 </div>
 
             </div>
@@ -410,13 +386,13 @@
         <hr>
 
         <div class="footer-links text-center">
-            <a href="#" class="bangla text-dark text-decoration-none px-3">স্কুইরাল নিউজ</a>
+            {{-- <a href="#" class="bangla text-dark text-decoration-none px-3">স্কুইরাল নিউজ</a>
             <a href="#" class="bangla text-dark text-decoration-none px-3">বিজ্ঞাপন</a>
             <a href="#" class="bangla text-dark text-decoration-none px-3">সার্কুলেশন</a>
             <a href="#" class="bangla text-dark text-decoration-none px-3">নীতিমালা</a>
             <a href="#" class="bangla text-dark text-decoration-none px-3">মন্তব্যের নীতিমালা</a>
-            <a href="#" class="bangla text-dark text-decoration-none px-3">গোপনীয়তার নীতি</a>
-            <a href="#" class="bangla text-dark text-decoration-none px-3">যোগাযোগ</a>
+            <a href="#" class="bangla text-dark text-decoration-none px-3">গোপনীয়তার নীতি</a> --}}
+            <a href="{{ url('address') }}" class="bangla text-dark text-decoration-none px-3">যোগাযোগ</a>
         </div>
 
         <hr>

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\FooterSettingsController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\GeneralMenuController;
 use App\Http\Controllers\Admin\FooterMenuController;
+use App\Http\Controllers\Admin\CkeditorController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -48,6 +49,7 @@ Route::post('/category/update/{id}',[CategoryController::class,'update']);
 Route::get('/category/delete/{id}',[CategoryController::class,'delete']);
 Route::get('/category/inactive/{id}',[CategoryController::class,'CategoryInactive']);
 Route::get('/category/active/{id}',[CategoryController::class,'CategoryActive']);
+
 
 // All SubCategory Routes
 
@@ -93,6 +95,10 @@ Route::get('/article/active/{id}',[ArticleController::class,'active']);
 Route::get('article/reject/{id}',[ArticleController::class,'reject']);
 Route::get('show', [ArticleController::class, 'show'])->name('specific.articles.index');
 
+
+Route::post('/ckeditor/upload/image',[ArticleController::class, 'upload'])->name('ckeditor.upload.image');
+
+
 //General Menu
 Route::get('general/menu/', [GeneralMenuController::class, 'index'])->name('general.menu.list');
 Route::get('general/menu/show/', [GeneralMenuController::class, 'show'])->name('general.menu.show');
@@ -118,5 +124,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
 });
+
+// ckeditor
+// Route::get('ckeditor', [CkeditorController::class, 'index']);
+// Route::post('ckeditor/upload',[CkeditorController::class, 'upload'])->name('ckeditor.upload');
 
 

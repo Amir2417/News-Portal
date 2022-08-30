@@ -81,6 +81,16 @@
                                         @enderror
                                     </div>
                                 </div>
+                                {{-- <div class="form-group">
+                                    <h5>Text<span class="text-danger">*</span>
+                                    </h5>
+                                    <div class="controls">
+                                        <textarea name="editor" id="editor" cols="30" rows="10"></textarea>
+                                        @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div> --}}
 
                                 <div class="text-xs-right">
                                     <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Add Category">
@@ -95,4 +105,14 @@
         </div>
     </div>
 </div>
+{{-- <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor', {
+        filebrowserUploadUrl: "{{route('ckeditor.upload.image', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+
+    });
+</script> --}}
+
 @endsection
+

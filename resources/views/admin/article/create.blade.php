@@ -1,6 +1,7 @@
 @extends('admin.admin_master')
 @section('content')
 
+
 <div class="container-full">
     <div class="content">
         <div class="row">
@@ -33,7 +34,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    
+
                                     <div class="controls">
                                         <input type="hidden" name="name" value="{{ Auth::user()->name }}"
                                         class="form-control">
@@ -117,7 +118,7 @@
                                     <h5>Long Description<span class="text-danger">*</span>
                                     </h5>
                                     <div class="controls">
-                                        <textarea class="form-control" id="editor1" name="long_description" id="" cols="30" rows="10"></textarea>
+                                        <textarea name="long_description" id="editor" cols="30" rows="10"></textarea>
                                         @error('long_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -150,5 +151,16 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor', {
+        filebrowserUploadUrl: "{{route('ckeditor.upload.image', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+
+    });
+</script>
+
+
+
 
 @endsection

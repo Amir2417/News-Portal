@@ -101,7 +101,7 @@
 
 
 
-            
+
 
             <div class="category-post row">
                 @foreach($article as $post)
@@ -112,7 +112,7 @@
                                 {{ $post->title }}</h4>
                         </a>
                             <div class="bangla news-desc">
-                                <!-- {!! Str::limit($post->long_description, 50) !!} -->
+                                 {{-- {!! Str::limit($post->long_description, 10) !!} --}}
                             </div>
                             <div class="time bangla">{{  $post->created_at->diffForHumans() }}</div>
                     </article>

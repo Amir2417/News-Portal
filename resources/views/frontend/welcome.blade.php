@@ -105,7 +105,7 @@
     <main>
         <!-- Feature Section Start -->
         @php
-            $articles = App\Models\Article::latest()->where('status',1)->limit(5)->get();
+            $articles = App\Models\Article::latest()->where('status',1)->limit(8)->get();
         @endphp
         <div class="featured-news">
             <section class="col-lg-9 col-md-12 col-sm-12 row m-3">
@@ -116,7 +116,7 @@
                             <a class = "text-dark text-decoration-none" href="{{ url('article/details/'.$article->id)}}">
                             <h5 class="news-heading bangla" >{{ $article->title }}</h5>
                             </a>
-                            <p class="time bangla">৪ ঘণ্টা আগে</p>
+                            <p class="time bangla">{{ $article->created_at->diffForHumans() }}</p>
                         </div>
                         <div class="">
                             <img class = "img-fluid" style = "height: 100px;" src="{{ $article->image }}" alt="">
@@ -130,7 +130,7 @@
                 <p class = "text-center">Here will be placed advertisment</p>
             </div>
 
-            
+
         </div>
 
         <!-- Category Post Section Start -->
@@ -150,7 +150,7 @@
                                 <h4 class="bangla news-heading">{{ $sport->title }}</h4>
                             </a>
                             <p class = "time bangla">{{ $sport->created_at->diffForHumans() }}</p>
-                            
+
                         </div>
                 </article>
                 @endforeach
@@ -168,7 +168,7 @@
             <div class="row">
                 @foreach ($latest_news as $news)
                     <article class="col-12 col-lg-3 col-md-6 col-sm-12 p-3 border-end">
-                        
+
                             <img class="img-fluid mx-auto d-block" src="{{ $news->image }}" alt="">
                         <article>
                             <a class="news-heading text-decoration-none text-dark" href="{{ url('article/details/'.$news->id)}}"><h4 class="bangla news-heading">{{ $news->title }}</h4></a>
@@ -187,11 +187,18 @@
 
 
     <!-- Footer Section Start -->
+    @php
+        $menus = App\Models\GeneralMenu::latest()->where('status',1)->limit(10)->get();
+    @endphp
     <footer class="p-3">
         <img class="footer-logo" src="./images/logo.png" alt="">
         <div class="row d-none d-lg-flex py-5 footer-tags">
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">চাকরি</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">গোলটেবিল</a>
+            @foreach ($menus as $menu)
+                <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">{{ $menu->name }}</a>
+            @endforeach
+
+
+            {{-- <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">গোলটেবিল</a>
             <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">বিশেষ সংখ্যা</a>
             <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">একটু থামুন</a>
             <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">অন্য আলো</a>
@@ -206,9 +213,9 @@
             <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">নাগরিক সংবাদ</a>
             <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">এবিসি রেডিও</a>
             <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">ই-পেপার</a>
-            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">English Edition</a>
+            <a href="#" class="col-2 px-3 bangla fs-5 text-decoration-none text-dark">English Edition</a> --}}
         </div>
-        <div class="footer-tags d-lg-none py-5 d-md-block text-center">
+        {{-- <div class="footer-tags d-lg-none py-5 d-md-block text-center">
             <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">চাকরি</a>
             <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">গোলটেবিল</a>
             <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">বিশেষ সংখ্যা</a>
@@ -226,7 +233,7 @@
             <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">এবিসি রেডিও</a>
             <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">ই-পেপার</a>
             <a href="#" class="px-3 bangla mx-auto fs-5 text-decoration-none text-dark">English Edition</a>
-        </div>
+        </div> --}}
         <hr>
 @php
     $social_media = App\Models\FooterSettings::latest()->limit(1)->get();
@@ -279,12 +286,12 @@
         <hr>
 
         <div class="footer-links text-center">
-            <a href="#" class="bangla text-dark text-decoration-none px-3">স্কুইরাল নিউজ</a>
+            {{-- <a href="#" class="bangla text-dark text-decoration-none px-3">স্কুইরাল নিউজ</a>
             <a href="" class="bangla text-dark text-decoration-none px-3">বিজ্ঞাপন</a>
             <a href="#" class="bangla text-dark text-decoration-none px-3">সার্কুলেশন</a>
             <a href="#" class="bangla text-dark text-decoration-none px-3">নীতিমালা</a>
             <a href="#" class="bangla text-dark text-decoration-none px-3">মন্তব্যের নীতিমালা</a>
-            <a href="#" class="bangla text-dark text-decoration-none px-3">গোপনীয়তার নীতি</a>
+            <a href="#" class="bangla text-dark text-decoration-none px-3">গোপনীয়তার নীতি</a> --}}
             <a href="{{ url('address') }}" class="bangla text-dark text-decoration-none px-3">যোগাযোগ</a>
         </div>
 

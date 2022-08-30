@@ -178,4 +178,23 @@ class ArticleController extends Controller
         $items = Article::findOrFail($id);
         return view('admin.article.view',compact('items'));
     }
+    public function upload(Request $request)
+    {
+        if($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName.'_'.time().'.'.$extension;
+
+            $request->file('upload')->move(('images'), $fileName);
+
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('images/'.$fileName);
+            // $msg = 'Image uploaded successfully';, '$msg'
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url')</script>";
+
+            @header('Content-type: text/html; charset=utf-8');
+            echo $response;
+        }
+    }
 }

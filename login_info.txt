@@ -1,0 +1,7 @@
+admin info
+
+mail:sohel@gmail.com
+pass:12345678
+
+mail:user@gmail.com
+pass:12345678
