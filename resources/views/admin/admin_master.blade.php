@@ -60,9 +60,10 @@
 
   <!-- CK editors -->
 
-  <script src="{{ asset('../assets/vendor_components/ckeditor/ckeditor.js') }}"></script>
+  {{-- <script src="{{ asset('../assets/vendor_components/ckeditor/ckeditor.js') }}"></script>
 	<script src="{{ asset('../assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js') }}"></script>
-	<script src="{{ asset('backend/js/pages/editor.js') }}"></script>
+	<script src="{{ asset('backend/js/pages/editor.js') }}"></script> --}}
+    <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
 
 	<!-- Sunny Admin App -->
 	<script src="{{ asset('backend/js/template.js') }}"></script>

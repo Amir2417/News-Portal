@@ -1,0 +1,55 @@
+.category-section {
+    padding: 20px 200px 20px 200px;
+    max-width: 1490px;
+    margin: auto;
+}
+
+.category-heading {
+    color: red;
+    font-weight: bold;
+}
+
+.category-post {
+    padding: 10px 100px 10px 100px;
+}
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 576px) {
+    .news-desc {
+        display: none;
+    }
+
+    .category-section {
+        padding: 10px;
+    }
+
+    .category-post {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+
+    .category-section {
+        padding: 10px;
+    }
+
+    .category-post {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+
+    .category-section {
+        padding: 10px;
+    }
+
+    .category-post {
+        padding: 10px;
+    }
+}

@@ -13,5 +13,6 @@ class GeneralSettings extends Model
         'favicon_image',
         'logo_image',
         'advertisement_image',
+        'status',
     ];
 }

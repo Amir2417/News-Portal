@@ -9,6 +9,10 @@ use Image;
 
 class GeneralSettingsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $items = GeneralSettings::latest()->get();
         return view('admin.seetings.general_seetings.index',compact('items'));
@@ -92,20 +96,5 @@ class GeneralSettingsController extends Controller
         GeneralSettings::findOrFail($id)->delete();
         return Redirect()->route('general.settings');
     }
-    public function active($id){
-       GeneralSettings::findOrFail($id)->update(['status'=>1]);
-        $notification = array(
-            'message' =>'Active Successfully',
-            'alert-type'=>"success",
-        );
-        return Redirect()->back()->with($notification);
-    }
-    public function inactive($id){
-        GeneralSettings::findOrFail($id)->update(['status'=> 0]);
-        $notification = array(
-            'message' =>' Inactive Successfully',
-            'alert-type'=>"success",
-        );
-        return Redirect()->back()->with($notification);
-    }
+
 }

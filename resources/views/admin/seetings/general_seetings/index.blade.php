@@ -22,7 +22,7 @@
                                         <th>Favicon</th>
                                         <th>Logo</th>
                                         <th>Advertisement</th>
-                                        <th>Status</th>
+
                                         <th>Action</th>
 
                                     </tr>
@@ -34,26 +34,14 @@
                                         <td><img src="{{ asset($item->favicon_image) }}" alt=""></td>
                                         <td><img src="{{ asset($item->logo_image) }}" alt=""></td>
                                         <td><img src="{{ asset($item->advertisement_image) }}"></td>
-                                        <td>
-                                            @if($item->status ==1)
-                                                <span class="badge badge-pill badge-success">Active</span>
-                                            @else
-                                                <span class="badge badge-pill badge-danger">InActive</span>
-                                            @endif
-                                        </td>
+
                                         <td width="30%">
                                             {{-- Edit and Delete Option Start--}}
-                                            <a class="btn btn-primary" href="{{ url('edit',$item->id) }}" title="Edit Data"><i class="fa fa-pencil"></i></a>
-                                            <a class="btn btn-danger" id="delete" href="{{ url('delete',$item->id) }}" title="Delete Data"><i class="fa fa-trash"></i></a>
+                                            <a class="btn btn-primary" href="{{ url('general/settings/edit/'.$item->id) }}" title="Edit Data"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-danger" id="delete" href="{{ url('general/settings/delete/'.$item->id) }}" title="Delete Data"><i class="fa fa-trash"></i></a>
                                             {{-- Edit and Delete Option End--}}
 
-                                            {{-- Active and inactive Option  Start--}}
-                                            @if($item->status ==1)
-                                            <a class="btn btn-primary" href="{{ url('inactive',$item->id) }}" title="InActive Now"><i class="fa fa-arrow-down"></i></a>
-                                            @else
-                                            <a class="btn btn-primary" href="{{ route('active',$item->id) }}" title="Active Now"><i class="fa fa-arrow-up"></i></a>
-                                            @endif
-                                            {{-- Active and inactive Option  End--}}
+
                                         </td>
 
                                    @endforeach

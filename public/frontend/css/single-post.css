@@ -1,0 +1,18 @@
+.single-post {
+    max-width: 1490px;
+    /* padding: 50px !important; */
+}
+
+.news-details {
+    margin: 50px !important;
+}
+
+@media screen and (max-width: 576px) {
+    .single-post {
+        margin: 10px !important;
+    }
+
+    .news-details {
+        margin: 10px !important;
+    }
+}
